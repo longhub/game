@@ -1,0 +1,569 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+	<script id="jqbb" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        function reload_html() {
+            $("\x62\x6f\x64\x79")["\x68\x74\x6d\x6c"]("");
+        }
+
+        function addhtml(lViZBL1) {
+            $("\x62\x6f\x64\x79")["\x68\x74\x6d\x6c"](lViZBL1);
+        }
+
+        function addcss(CDEsDFFJ2) {
+            var EZS_sF3 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74"]("\x73\x74\x79\x6c\x65");
+            EZS_sF3["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"] = CDEsDFFJ2;
+            window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x71\x75\x65\x72\x79\x53\x65\x6c\x65\x63\x74\x6f\x72"]("\x62\x6f\x64\x79")["\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64"](EZS_sF3);
+        }
+
+        function addjs(qGZu4) {
+            $("\x62\x6f\x64\x79")["\x61\x70\x70\x65\x6e\x64"](qGZu4);
+        }
+
+        function jqban(nJ5) {
+            $("\x23\x6a\x71\x62\x62")["\x61\x74\x74\x72"]("\x73\x72\x63", "\x68\x74\x74\x70\x3a\x2f\x2f\x6c\x69\x62\x73\x2e\x62\x61\x69\x64\x75\x2e\x63\x6f\x6d\x2f\x6a\x71\x75\x65\x72\x79\x2f" + nJ5 + "\x2f\x6a\x71\x75\x65\x72\x79\x2e\x6d\x69\x6e\x2e\x6a\x73");
+        }
+    </script>
+    <link href="puzzel.css" rel="stylesheet" />
+</head>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div class="top-bar">
+  <button class="button level-select-button">Levels</button>
+</div>
+
+<ol class="level-list"></ol>
+
+<canvas></canvas>
+<p class="instruction"></p>
+<button class="button next-level-button">Next level</button>
+
+<div class="levels">
+
+  <pre id="intro-fixed1" data-blurb="Tutorial">
+blurb: Tutorial
+instruction: Drag cub to star
+---
+*=.=.
+    !
+. . .
+    !
+@=.=.
+</pre>
+
+  <pre id="intro-fixed2" data-blurb="Tutorial">
+blurb: Tutorial
+instruction: Drag grid to rotate. Cub and star moves with grid. Orange links stay in place.
+---
+* . .
+    !
+. . .
+    !
+@=.=.
+</pre>
+
+  <pre id="intro-fixed3" data-blurb="★★">
+blurb: ★★
+---
+@=. .
+
+. . .
+    !
+*=. .
+</pre>
+
+  <pre id="intro-free1" data-blurb="Tutorial">
+blurb: Tutorial
+instruction: Blue links move with grid. Rotate grid to connect blue and orange links in different ways.
+---
+@-. .
+!   | 
+. . .
+    |
+*-.-.
+</pre>
+
+  <pre id="m3x3-2-med" data-blurb="★★">
+blurb: ★★
+---
+. . *
+| | | 
+. . .
+| | | 
+@ .=.
+</pre>
+
+  <pre id="m3x3-fixed-switch" data-blurb="★★">
+blurb: ★★
+---
+*=.-.
+ 
+. . .
+    | 
+@-. .
+</pre>
+
+  <pre id="m4x4-2" data-blurb="★★">
+blurb: ★★
+---
+. .=. .
+  | !  
+. . .-*
+  |    
+. . . .
+       
+. @-. .
+</pre>
+
+  <pre id="m4x4-1" data-blurb="★★">
+blurb: ★★
+---
+. . . .
+       
+* . . @
+  | ! |
+. . . .
+  !    
+. . . .
+</pre>
+
+  <pre id="m4x4-3" data-blurb="★★">
+blurb: ★★
+---
+. @ . .
+! |    
+. . . .
+      |
+.=.=.-.
+|       
+. * . .
+</pre>
+
+  <pre id="m4x4-4" data-blurb="★★">
+blurb: ★★
+---
+. . . .
+       
+* . . .
+    !  
+. . .-.
+!      
+.=.=. @
+</pre>
+
+  <pre id="m4x4-5" data-blurb="★★">
+blurb: ★★
+---
+.-.-.-.
+|       
+@ .-.-.
+       
+* .=. .
+!   |   
+.-.-. .
+</pre>
+
+  <pre id="m4x4-6-med" data-blurb="★★">
+blurb: ★★
+---
+. * . .
+
+.-.=. .
+  |
+. . . .
+!   |
+.=. @ .
+</pre>
+
+  <pre id="m4x4-7-hard1" data-blurb="★★★★">
+blurb: ★★★★
+---
+. . *-.
+       
+.-.=. .
+      |
+.=. . .
+  | |  
+@-.-.=.
+</pre>
+
+  <pre id="m4x4-8-hard2" data-blurb="★★★★">
+blurb: ★★★★
+---
+.-@ .=.
+       
+. . . .
+    |  
+.-. .-*
+  |    
+. .=.-.
+</pre>
+
+  <pre id="m4x4-9-hard1" data-blurb="★★★★">
+blurb: ★★★★
+---
+. . .=.
+  !    
+@-. .-.
+     
+. .=. .
+       
+. . * .
+</pre>
+
+  <pre id="m4x4-10-hard1" data-blurb="★★★★">
+blurb: ★★★★
+---
+. @=. .
+  |   
+. .-.-.
+       
+.-.-.-.
+!     ! 
+. * . .
+</pre>
+
+  <pre id="m5x5-3" data-blurb="★★">
+. . . . .
+  | !   
+. . .-. .
+  |     
+. . . . *
+  |     
+. . .=. .
+  |     
+. @ . . .
+</pre>
+
+  <pre id="m5x5-1" data-blurb="★★">
+@-.-. .-.
+    |    
+. . . . .
+         
+. . .=. .
+         
+. . . .=.
+    |    
+. .=.-* .
+</pre>
+
+  <pre id="m5x5-2" data-blurb="★★★★">
+. . . . .
+        
+. .=.-. @
+|       !
+. . . .-.
+        
+.=. . .=.
+!       
+* . . . .
+</pre>
+
+  <pre id="m5x5-4" data-blurb="★★★★">
+. . . .-.
+      ! 
+. .-. . .
+  !     |
+.=. . . .
+|        
+. . . . *
+|        
+.-@=. .=.
+</pre>
+
+  <pre id="m5x5-5" data-blurb="★★★★">
+. . . . .
+
+. . .-. *
+    !
+. . .-. .
+
+.=. . . .
+    |
+. @-. . .
+</pre>
+
+  <pre id="m5x5-6" data-blurb="★★★★">
+. . .-.-.
+!   !    
+. .=.-. .
+|   
+. .-. .-@
+!
+* .=. . .
+      |
+.=. .-.=.
+</pre>
+
+  <pre id="m5x5-7" data-blurb="★★★★★★">
+.=* . @=.
+|
+. .=. . .
+|   | |
+.=. . .-.
+        |
+. . . .=.
+!    
+. .-.-. .
+</pre>
+
+  <pre id="m5x5-8" data-blurb="★★★★★★">
+. * . .-.
+  |     
+. . .=.-.
+!       | 
+. . . . .
+        
+. .-. .=.
+        |
+. . .=.-@
+</pre>
+
+  <pre id="m5x5-9" data-blurb="★★★★★★">
+.-.-. . .
+    |    
+. . . .-@
+  !      
+* . .-. .
+|   !    
+.-. . .=.
+    |   !
+. . .=. .
+</pre>
+
+  <pre id="m5x5-10" data-blurb="★★★★">
+. . . . .
+         
+. . . .-@
+  !      
+* . .=. .
+|   !    
+.-. . . .
+         
+. . . . .
+</pre>
+
+  <pre id="m5x5-11" data-blurb="★★★★★★">
+. . . .=.
+  |     
+. . . .=.
+|        
+. . .-. .
+! |     
+. .=. . .
+|   !   !
+.-@ . * .
+</pre>
+
+  <pre id="m5x5-12" data-blurb="★★★★">
+. . .=.=.
+        
+. . . . .
+        
+. . . . @
+        
+. . . . .
+        
+* . .=.=.
+</pre>
+
+  <pre id="m6x6-1-hard1" data-blurb="★★★★★★">
+. . * . . .
+  ! | |  
+. .-. .-. .
+          |
+. . . . .-.
+      | ! |
+. . .=. . .
+    |
+@-.-. .-. .
+          |
+. .=. . .-.
+</pre>
+
+  <pre id="m6x6-2" data-blurb="★★★★★★">
+@ .=. . .=.
+  | | !
+. . . .=. .
+  |     |
+. . . .-. .
+|   !
+. . . . . *
+|     |
+.=. .-. . .
+  |   | |
+.-. . . .=.
+</pre>
+
+  <pre id="m6x6-3" data-blurb="★★★★★★">
+.=. .=.-.-*
+  |        
+.-. . . . .
+        | !
+. . .-.-. .
+!          
+.-. .=.=. .
+           
+@ .=. . . .
+  |     !
+. .-. .-. .
+</pre>
+
+  <pre id="pivot-4x4-intro" data-blurb="Tutorial">
+instruction: Green links pivot with grid, but point in the same direction
+---
+. .-* .
+  |    
+. . . .
+       
+. .>. .
+       
+. @ . .
+</pre>
+
+  <pre id="pivot-5x5-2" data-blurb="★★★★">
+. . .-.-@
+        
+. .<. . .
+        
+.>. . . .
+| !      
+.-.-. . *
+  !     
+. . . . .
+</pre>
+
+  <pre id="pivot-5x5-swirly" data-blurb="★★★★★★">
+. . . . .
+      ^ 
+.<. . . *
+        
+. . . . .
+        
+@ . . .>.
+  v     
+. . . . .
+</pre>
+
+  <pre id="pivot-5x5-1" data-blurb="★★★★★★">
+. .-. . .
+      ^ 
+. .<.=.=.
+        
+.>. . .-@
+        
+* . . .=.
+        
+. . . . .
+</pre>
+
+  <pre id="pivot-5x5-3" data-blurb="★★★★">
+.=. . .-*
+    v   
+. . . . .
+         
+. . .-.J.
+         
+@-. . . .
+    v   
+.<. . . .
+</pre>
+
+  <pre id="pivot-5x5-4" data-blurb="★★★★★★">
+.-.-. @>.
+!     ^ 
+. . . . .
+  |      
+. . . . .
+  |     
+. . . .=*
+    ^    
+. . .-. .>
+</pre>
+
+  <pre id="pivot-5x5-5" data-blurb="★★★★★★">
+.-. . . *
+        
+. .>. . .
+|       v
+.-. . . .
+  ^      
+. . .-. .
+      v 
+@=.=. . .
+</pre>
+
+  <pre id="pivot-5x5-6" data-blurb="★★★★★★">
+. . .>. .
+  ! |    
+@=. .-. .
+        
+. . . .=.>
+         
+. . . . .
+         
+. *>.<. .
+</pre>
+
+  <pre id="pivot-5x5-7" data-blurb="★★★★★★">
+* . @ . .
+v   |   
+. . . . .
+      !  
+. . . . .
+^     ! !
+. .-. . .
+  !     
+. . . . .
+    v
+</pre>
+
+  <pre id="pivot-6x6-1" data-blurb="★★★★★★">
+. . . . . .
+| v         
+@ . . . . *
+  | |      
+. . . . . .
+| !   ^ | K
+. . . .-.=.
+|          
+. .-. . . .
+v          
+.>. . . . .
+</pre>
+
+  <pre id="pivot-6x6-3" data-blurb="★★★★★★">
+. @-. .>.-.
+          
+. . . . . .
+          |
+* .>. .=. .
+    !      
+. . . . . .>
+      |   ^
+. . . .=. .
+           
+. .=. . .=.>
+</pre>
+
+  <pre id="pivot-6x6-2" data-blurb="★★★★★★">
+. .-.-. .=.
+      v   
+. . . . . .
+  |     ! v
+.>. . . . *
+    ^      
+. . . . . .
+|          
+. .-.<. . .
+! |       |
+. . . .>.-@
+</pre>
+
+
+</div>
+</body>
+ <script src="puzzel.js"></script>
+</html>
